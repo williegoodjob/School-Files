@@ -40,6 +40,7 @@
         $conn->close();
         ?>
     </table>
+    
     <form action="insert.php" method="post">
         <label>your name:<input type="text" name="account"></label><br />
         <label>say:<input type="text" name="text"></label><br />
