@@ -9,12 +9,11 @@
         <?php
         $servername = "localhost";
         $username = "root";
-        $password = "123456";
+        $password = "*********";
         $dbname = "DB";
 
-        // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
+
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
@@ -29,7 +28,6 @@
         $result = $conn->query($sql);
         
         if ($result->num_rows > 0) {
-            // output data of each row
             echo "<tr>" . "<td>time</td>" . "<td>account</td>" . "<td>text</td>" . "</tr>";
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>" . "<td>" . $row["time"] . "</td>" . "<td>" . $row["account"] . "</td>" . "<td>" . $row["text"] . "</td>" . "</tr>";
@@ -47,11 +45,10 @@
         <input type="submit" value="送出">
     </form>
 
-    <!-- all user -->
     <form action="#" method="post">
         <input type="submit" value="all user">
     </form>
-    <!-- search username -->
+    
     <form action="#" method="post">
         <label>search:<input type="text" name="account"></label><br />
         <input type="submit" value="送出">
