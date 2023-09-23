@@ -18,7 +18,13 @@ root
 ¢x  ¢x  ¢u¢w(2)
 ¢x  ¢x  ¢u¢w(3)
 ¢x  ¢x  ¢|¢w(4)
-¢x  ¢|¢wtest
+¢x  ¢u¢w5
+¢x  ¢x  ¢u¢w(1)
+¢x  ¢x  ¢|¢w(2)
+¢x  ¢u¢w5.2
+¢x  ¢x  ¢u¢w(1)
+¢x  ¢x  ¢|¢w(2)
+¢x  ¢|¢wHelloWorld
 ¢|¢wweb
     ¢|¢wphptest
 ```
