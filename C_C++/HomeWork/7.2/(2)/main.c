@@ -3,24 +3,24 @@
 
 int main(int argc, char *argv[]) 
 {
-	int a[10]={0};		
-	int i=0, max;		
-	printf("-----尋找最大值-----\n");
-	printf("請連續輸入十個數值-\n");
-	for(i=0;i<10;i++)		
+	int a[5]={0};		
+	int i=0, min;		
+	printf("-----尋找最小值-----\n");
+	printf("請連續輸入五個數值-\n");
+	for(i=0;i<5;i++)		
 	{
 	   printf("請輸入第 %d 個資料：", i+1 );
 	   scanf("%d", &a[i]);  
 	}
-	max=a[0];			
-	for(i=0;i<10;i++)		
+	min=a[0];			
+	for(i=0;i<5;i++)		
 	{
-	  if (max<a[i])	
+	  if (min<a[i])	
 	  {
-		  max=a[i];
+		  min=a[i];
 	  }
 	}
-	printf("最大值：%d\n\n",max); 
+	printf("最小值：%d\n\n",min); 
 	
 	system("PAUSE");	
 	return 0;
