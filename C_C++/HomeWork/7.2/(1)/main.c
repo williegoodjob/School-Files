@@ -11,11 +11,11 @@ int main()
     printf("\n");
     if (strcmp(name, "Xuser") == 0)
     {
-        srand(time(0)); // for generating random numbers
+        srand(time(0)); 
         printf("產生1000個字元元素之字元陣列如下:\n");
         for (int i = 0; i < 1000; i++)
         {
-            printf("name[%d]=%c\n", i + 1, 'A' + rand() % 26); // Generates a random character from A-Z
+            printf("name[%d]=%c\n", i + 1, 'A' + rand() % 26); 
         }
     }
     else
