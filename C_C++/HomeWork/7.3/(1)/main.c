@@ -26,7 +26,6 @@ int main(){
     char* c[] = {"蔡", "宇", "崴"};
     for (int i = 0; i < 3; i++)
     {
-        //printf("c[%d] = %c\n", i, c[i]);
         printf("c[%d] = %s\n", i, c[i]);
     }
     printf(">>> 整數陣列a中的每個元素各佔4個Bytes <<<\n");
