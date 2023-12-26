@@ -3,7 +3,9 @@
 #include <vector>
 #include <sstream>
 
-void bubbleSort(std::vector<int> &arr)
+using namespace std;
+
+void bubbleSort(vector<int> &arr)
 {
     int n = arr.size();
     bool swapped;
@@ -14,7 +16,7 @@ void bubbleSort(std::vector<int> &arr)
         {
             if (arr[j] > arr[j + 1])
             {
-                std::swap(arr[j], arr[j + 1]);
+                swap(arr[j], arr[j + 1]);
                 swapped = true;
             }
         }
@@ -25,7 +27,7 @@ void bubbleSort(std::vector<int> &arr)
     }
 }
 
-double median(std::vector<int> &numbers)
+double median(vector<int> &numbers)
 {
     size_t size = numbers.size();
 
@@ -44,16 +46,19 @@ double median(std::vector<int> &numbers)
     }
 }
 
-std::string formatNumber(double number) {
-    std::ostringstream out;
-    out << std::fixed;
-    for (int precision = 1; precision <= 10; ++precision) {
+string formatNumber(double number)
+{
+    ostringstream out;
+    out << fixed;
+    for (int precision = 1; precision <= 10; ++precision)
+    {
         out.str("");
         out.clear();
-        out << std::setprecision(precision) << number;
+        out << setprecision(precision) << number;
         double rounded;
-        std::istringstream(out.str()) >> rounded;
-        if (rounded == number) {
+        istringstream(out.str()) >> rounded;
+        if (rounded == number)
+        {
             break;
         }
     }
@@ -62,54 +67,66 @@ std::string formatNumber(double number) {
 
 int main()
 {
-    std::vector<int> numbers;
+    vector<int> numbers;
     int num;
     double sum = 0.0;
     char c;
-    std::cout << "<<< 請連續輸入五個數值(資料間空一格) >>>" << std::endl
-              << "氣泡排序法(排序前)：";
-    while (std::cin >> num)
+
+    cout << "<<< 請連續輸入五個數值(資料間空一格) >>>" << endl
+         << "氣泡排序法(排序前)：";
+
+    while (cin >> num)
     {
         numbers.push_back(num);
-        std::cin.get(c);
+        cin.get(c);
         if (c == '\n')
         {
             break;
         }
     }
+
     bubbleSort(numbers);
-    std::cout << std::endl
-              << "== 氣泡排序法(由小到大排序)==" << std::endl
-              << "計算結果 1： 排序後為 ";
+
+    cout << endl
+         << "== 氣泡排序法(由小到大排序)==" << endl
+         << "計算結果 1： 排序後為 ";
+
     for (int i = 0; i < numbers.size(); i++)
     {
-        std::cout << numbers[i] << " ";
+        cout << numbers[i] << " ";
         sum += numbers[i];
     }
-    std::cout << std::endl
-              << std::endl
-              << "== 氣泡排序法(由大到小排序)==" << std::endl
-              << "計算結果 2： 排序後為 ";
+
+    cout << endl
+         << endl
+         << "== 氣泡排序法(由大到小排序)==" << endl
+         << "計算結果 2： 排序後為 ";
+
     for (int i = numbers.size() - 1; i >= 0; i--)
     {
-        std::cout << numbers[i] << " ";
+        cout << numbers[i] << " ";
     }
-    std::cout << std::endl
-              << std::endl
-              << "== 氣泡排序(最小值)==" << std::endl
-              << "計算結果 3： 最小值為 " << numbers[0];
-    std::cout << std::endl
-              << std::endl
-              << "== 氣泡排序法(最大值)==" << std::endl
-              << "計算結果 4： 最大值為 " << numbers[numbers.size() - 1];
+
     double average = sum / numbers.size();
-    std::cout << std::endl
-              << std::endl
-              << "== 氣泡排序法(平均值)==" << std::endl
-              << "計算結果 5： 平均值為 " << formatNumber(average);
-    std::cout << std::endl
-              << std::endl
-              << "== 氣泡排序法(中位數)==" << std::endl
-              << "計算結果 6： 中位數為 " << median(numbers);
+
+    cout << endl
+         << endl
+         << "== 氣泡排序(最小值)==" << endl
+         << "計算結果 3： 最小值為 " << numbers[0]
+         << endl
+         << endl
+         << "== 氣泡排序法(最大值)==" << endl
+         << "計算結果 4： 最大值為 " << numbers[numbers.size() - 1]
+         << endl
+         << endl
+         << "== 氣泡排序法(平均值)==" << endl
+         << "計算結果 5： 平均值為 " << formatNumber(average)
+         << endl
+         << endl
+         << "== 氣泡排序法(中位數)==" << endl
+         << "計算結果 6： 中位數為 " << median(numbers)
+         << endl
+         << endl;
+    system("PAUSE");
     return 0;
 }
