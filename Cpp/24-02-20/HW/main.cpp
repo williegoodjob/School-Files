@@ -1,4 +1,3 @@
-// 輸入abc三個數 解出ax*x+bx+c=0的解
 #include <iostream>
 #include <cmath>
 using namespace std;
