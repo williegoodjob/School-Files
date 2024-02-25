@@ -22,8 +22,8 @@ int main()
     {
         xd = (-b + sqrt(temp)) / (2 * a);
         xf = (-b - sqrt(temp)) / (2 * a);
-        cout << "xd=" << xd << endl;
-        cout << "xf=" << xf << endl;
+        cout << "x1=" << xd << endl;
+        cout << "x2=" << xf << endl;
     }
     return 0;
 }
