@@ -13,17 +13,17 @@ int main()
     cout << "c=";
     cin >> c;
     float temp = pow(b, 2) - 4 * a * c;
-    if (temp > 0)
+    if (temp < 0)
+    {
+        temp = abs(temp);
+        cout << "x=(" << -b << "กำ" << temp << "i)/" << 2 * a << endl;
+    }
+    else
     {
         xd = (-b + sqrt(temp)) / (2 * a);
         xf = (-b - sqrt(temp)) / (2 * a);
         cout << "xd=" << xd << endl;
         cout << "xf=" << xf << endl;
-    }
-    else
-    {
-        temp = abs(temp);
-        cout << "x=(" << -b << "กำ" << temp << "i)/" << 2 * a << endl;
     }
     return 0;
 }
