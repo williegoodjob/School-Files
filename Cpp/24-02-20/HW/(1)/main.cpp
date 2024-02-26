@@ -4,17 +4,16 @@ using namespace std;
 int main()
 {
     float a, b, c;
-    float xd=0, xf=0;
-    cout << "輸入a,b,c三個數" << endl;
-    cout << "a=";
+    float x1 = 0, x2 = 0;
+    cout << "這題是解a*x2+b*x+c=0的程式" << endl;
+    cout << "請輸入a:";
     cin >> a;
-    cout << "b=";
+    cout << "請輸入b:";
     cin >> b;
-    cout << "c=";
+    cout << "請輸入c:";
     cin >> c;
-    xd = (-b + sqrt(pow(b, 2) - 4 * a * c)) / (2 * a);
-    xf = (-b - sqrt(pow(b, 2) - 4 * a * c)) / (2 * a);
-    cout << "xd=" << xd << endl;
-    cout << "xf=" << xf << endl;
+    x1 = (-b + sqrt(pow(b, 2) - 4 * a * c)) / (2 * a);
+    x2 = (-b - sqrt(pow(b, 2) - 4 * a * c)) / (2 * a);
+    cout << a << "*x2+" << b << "*x+" << c << "=0的解是" << x1 << "與" << x2 << endl;
     return 0;
 }
