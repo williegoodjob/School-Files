@@ -3,7 +3,6 @@ using namespace std;
 
 int main()
 {
-    // 块计 耞案计
     int n;
     cout << "叫块俱计:";
     cin >> n;
