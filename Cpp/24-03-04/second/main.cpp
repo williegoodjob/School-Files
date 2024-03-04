@@ -1,47 +1,54 @@
 #include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <random>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
-// 定義花色和點數
-vector<string> suits = {"黑桃", "心形", "菱形", "梅花"};
-vector<string> ranks = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
-
-int main() {
-    // 初始化一副牌
-    vector<pair<string, string>> deck;
-    for (const auto &suit : suits) {
-        for (const auto &rank : ranks) {
-            deck.push_back(make_pair(rank, suit));
-        }
+string suits[4] = {"梅花", "方塊", "紅心", "黑桃"};
+string ranks[13] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+string pool[52];
+string user[4][13];
+int main()
+{
+    for (int i = 0; i < 52; i++)
+    {
+        pool[i] = suits[i / 13] + ranks[i % 13];
     }
 
-    // 隨機洗牌
-    random_device rd;
-    mt19937 g(rd());
-    shuffle(deck.begin(), deck.end(), g);
-
-    // 定義四個玩家
-    vector<string> players = {"第一個人", "第二個人", "第三個人", "第四個人"};
-
-    // 發牌給每個玩家
-    vector<vector<pair<string, string>>> hands(players.size());
-    for (int i = 0; i < 13; ++i) {
-        for (const auto &player : players) {
-            auto card = deck.back();
-            deck.pop_back();
-            hands[distance(players.begin(), find(players.begin(), players.end(), player))].push_back(card);
-        }
+    srand(time(NULL));
+    for (int i = 0; i < 52; i++)
+    {
+        int index = rand() % 52;
+        swap(pool[i], pool[index]);
     }
 
-    // 顯示每個玩家手中的牌
-    for (size_t i = 0; i < players.size(); ++i) {
-        cout << players[i] << ":";
-        for (const auto &card : hands[i]) {
-            cout << card.second << card.first << ",";
+    for (int i = 0; i < 52; i++)
+    {
+        int suit = i / 13;
+        int rank = i % 13;
+        if (i < 13)
+        {
+            user[0][i] = pool[i];
+        }
+        else if (i < 26)
+        {
+            user[1][i - 13] = pool[i];
+        }
+        else if (i < 39)
+        {
+            user[2][i - 26] = pool[i];
+        }
+        else
+        {
+            user[3][i - 39] = pool[i];
+        }
+    }
+    for (int i = 0; i < 4; i++)
+    {
+        cout << "第" << i + 1 << "個人:";
+        for (int j = 0; j < 13; j++)
+        {
+            cout << user[i][j] << ",";
         }
         cout << endl;
     }
