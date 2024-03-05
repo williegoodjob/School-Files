@@ -13,12 +13,13 @@ int main()
     for (int i = -size; i < size; i++)
     {
         int count = size - abs(i);
-        cout << setw(abs(i) + size);
+        cout << setw(count + size);
+        string space = "";
         for (int j = 0; j < count; j++)
         {
-            cout << " *";
+            space += " *";
         }
-        cout << endl;
+        cout << space << endl;
     }
     return 0;
 }
