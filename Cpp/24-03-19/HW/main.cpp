@@ -31,8 +31,6 @@ int main()
     while (flag)
     {
         cout << "1. 設定密碼\n2. 測試密碼\n請選擇[1,2]:";
-        cout << endl
-             << "password: " << pwd << endl;
         cin >> mode;
 
         switch (mode)
