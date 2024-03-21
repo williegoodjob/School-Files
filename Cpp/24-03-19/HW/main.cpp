@@ -12,25 +12,37 @@ char ckpwd[LENGTH];
 void setPWD(int length);
 bool checkPWD(int length);
 
+fstream pass("pass.dat");
+
 int main()
 {
-    ofstream pass("pass.dat");
-    if (pass.fail())
+    if (!pass.is_open())
     {
         cout << "File open error" << endl;
         exit(1);
     }
+    for (int i = 0; i < LENGTH; i++)
+    {
+        pass >> pwd[i];
+    }
+    pass.close();
     int mode = 0;
     bool flag = true;
     while (flag)
     {
         cout << "1. 設定密碼\n2. 測試密碼\n請選擇[1,2]:";
+        cout << endl
+             << "password: " << pwd << endl;
         cin >> mode;
+
         switch (mode)
         {
         case 1:
             setPWD(LENGTH);
-            break; 
+            pass.open("pass.dat", ios::out | ios::trunc);
+            pass << pwd;
+            pass.close();
+            break;
         case 2:
             if (checkPWD(LENGTH))
             {
@@ -48,7 +60,7 @@ int main()
 
 void setPWD(int length)
 {
-    cout << "請輸入"<< length <<"個字的密碼" << endl;
+    cout << "請輸入" << length << "個字的密碼" << endl;
     for (size_t i = 0; i < length; i++)
     {
         pwd[i] = getch();
@@ -59,7 +71,7 @@ void setPWD(int length)
 
 bool checkPWD(int length)
 {
-    cout << "請輸入"<< length <<"個字的密碼" << endl;
+    cout << "請輸入" << length << "個字的密碼" << endl;
     bool flag = true;
     for (size_t i = 0; i < length; i++)
     {
