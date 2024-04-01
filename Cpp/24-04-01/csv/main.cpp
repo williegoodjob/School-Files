@@ -27,14 +27,5 @@ int main()
     {
         cout << data[i] << endl;
     }
-    cout << "---------------------------------" << endl;
-    // ´M§ä¼ê´ò
-    for (int i = 0; i < data.size(); i++)
-    {
-        if (data[i].find("¼ê´ò") != string::npos)
-        {
-            cout << data[i] << endl;
-        }
-    }
     return 0;
 }
