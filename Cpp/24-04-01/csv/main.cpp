@@ -1,4 +1,3 @@
-// ´M§ä¼ê´òªº¸ê®Æ
 #include <iostream>
 #include <fstream>
 #include <string>
