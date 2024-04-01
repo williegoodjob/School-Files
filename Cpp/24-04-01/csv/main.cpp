@@ -27,5 +27,19 @@ int main()
     {
         cout << data[i] << endl;
     }
+    
+    for (int i = 0; i < data.size(); i++)
+    {
+        if (data[i].find("»O«n") != string::npos)
+        {
+        cout << "---------------------------------" << endl;
+            stringstream ss(data[i]);
+            string item;
+            while (getline(ss, item, ','))
+            {
+                cout << item << endl;
+            }
+        }
+    }
     return 0;
 }
