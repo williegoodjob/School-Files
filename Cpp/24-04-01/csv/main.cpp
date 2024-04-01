@@ -6,40 +6,54 @@
 #include <iomanip>
 using namespace std;
 
+struct Student
+{
+    string name;
+    string id;
+    string score;
+};
+
 int main()
 {
     ifstream fin;
     string line;
-    vector<string> data;
+    vector<Student> StudentList;
     fin.open("data.csv");
     if (!fin)
     {
         cout << "檔案開啟失敗" << endl;
         return 1;
     }
+    cout << "檔案開啟完成" << endl;
+    
     while (getline(fin, line))
     {
-        data.push_back(line);
+        Student student;
+        stringstream ss(line);
+        getline(ss, student.name, ',');
+        getline(ss, student.id, ',');
+        getline(ss, student.score, ',');
+        StudentList.push_back(student);
     }
     fin.close();
-
-    for (int i = 0; i < data.size(); i++)
+    cout << "檔案索引完成" << endl;
+    while (1)
     {
-        cout << data[i] << endl;
-    }
-    
-    for (int i = 0; i < data.size(); i++)
-    {
-        if (data[i].find("臺南") != string::npos)
+        cout << endl
+             << "請輸入要找的姓名:";
+        string name;
+        bool flag = false;
+        cin >> name;
+        for (int i = 0; i < StudentList.size(); i++)
         {
-        cout << "---------------------------------" << endl;
-            stringstream ss(data[i]);
-            string item;
-            while (getline(ss, item, ','))
+            if (StudentList[i].name == name)
             {
-                cout << item << endl;
+                cout << StudentList[i].name << "的成績是" << StudentList[i].score << endl;
+                flag = true;
             }
         }
+        if (!flag)
+            cout << "查無此人" << endl;
     }
     return 0;
 }
