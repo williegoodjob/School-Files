@@ -30,7 +30,7 @@ int main()
         return 1;
     }
     cout << "檔案開啟完成" << endl;
-    
+
     while (getline(fin, line))
     {
         Student student;
@@ -46,7 +46,7 @@ int main()
     StudentList = bubbleSort(StudentList, 0);
     for (int i = 0; i < StudentList.size(); i++)
     {
-        cout << StudentList[i].name << " " << StudentList[i].id << " " << StudentList[i].score << endl;
+        cout << setw(10) << StudentList[i].name << setw(8) << StudentList[i].id << setw(6) << StudentList[i].score << endl;
     }
 
     return 0;
