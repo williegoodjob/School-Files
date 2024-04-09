@@ -21,7 +21,6 @@ void sort(vector<pm25> &data);
 int main()
 {
     ifstream fin("work.csv");
-
     if (!fin.is_open())
     {
         cout << "Error: File open failed!!" << endl;
@@ -43,9 +42,8 @@ int main()
         data.push_back(temp);
     }
     fin.close();
-    
     sort(data);
-
+    cout << left << setw(8) << "Site" << setw(5) << "PM2.5" << endl;
     for (int i = 0; i < data.size(); i++)
     {
         cout << left << setw(8) << data[i].site << setw(5) << data[i].pm25 << endl;
