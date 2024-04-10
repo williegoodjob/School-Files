@@ -16,7 +16,7 @@ struct pm25
     string itemUnit;
 };
 
-void sort(vector<pm25> &data);
+void sort(vector<pm25> &data,bool isAcending);
 
 int main()
 {
@@ -42,24 +42,26 @@ int main()
         data.push_back(temp);
     }
     fin.close();
-    sort(data);
+    sort(data, 0);
     cout << left << setw(8) << "Site" << setw(5) << "PM2.5" << endl;
-    for (int i = 0; i < data.size(); i++)
+    for (const auto &d : data)
     {
-        cout << left << setw(8) << data[i].site << setw(5) << data[i].pm25 << endl;
+        cout << left << setw(8) << d.site << setw(5) << d.pm25 << endl;
     }
     return 0;
 }
 
-void sort(vector<pm25> &data)
+void sort(vector<pm25> &data,bool isAcending)
 {
-    for (int i = 0; i < data.size(); i++)
+    for (int i=data.size()-1; i>0; i--)
     {
-        for (int j = i + 1; j < data.size(); j++)
+        for (int j=0; j<i; j++)
         {
-            if (data[i].pm25 < data[j].pm25)
+            if ((data[j].pm25 > data[j+1].pm25 && isAcending) || (data[j].pm25 < data[j+1].pm25 && !isAcending))
             {
-                swap(data[i], data[j]);
+                pm25 temp = data[j];
+                data[j] = data[j+1];
+                data[j+1] = temp;
             }
         }
     }
