@@ -2,8 +2,7 @@
 
 int main()
 {
-    PM25Data data;
-    data.loadData("work.csv");
+    PM25Data data("work.csv");
     data.sortData(0);
     data.printData();
     return 0;
