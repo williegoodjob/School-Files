@@ -1,6 +1,5 @@
 #ifndef PM2_5_H
 #define PM2_5_H
-#endif
 
 #include <iostream>
 #include <iomanip>
@@ -31,3 +30,4 @@ public:
     void sortData(bool isAscending);
     void printData() const;
 };
+#endif
