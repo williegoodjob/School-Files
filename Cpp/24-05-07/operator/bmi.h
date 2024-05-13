@@ -48,14 +48,18 @@ public:
         weight = w;
     }
 
-    friend bool operator>(float value, const bmi &b)
-    {
-        return b.BMI > value;
-    }
-    friend bool operator<(float value, const bmi &b)
-    {
-        return b.BMI < value;
-    }
+    friend bool operator>(float value, const bmi &b);
+    friend bool operator<(float value, const bmi &b);
 };
+
+bool operator>(float value, const bmi &b)
+{
+    return value > b.BMI;
+}
+bool operator<(float value, const bmi &b)
+{
+    return value < b.BMI;
+}
+
 
 #endif
