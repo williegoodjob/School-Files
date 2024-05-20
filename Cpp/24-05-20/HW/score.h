@@ -1,3 +1,6 @@
+#ifndef SCORE_H
+#define SCORE_H
+
 #include <iostream>
 using namespace std;
 
@@ -7,7 +10,9 @@ class score
     friend score operator+(const score &a, int b);
     friend score operator+(int a, const score &b);
     friend istream &operator>>(istream &a, score &b);
-    friend ostream &operator<<(ostream &a, score &b);
+    friend ostream &operator<<(ostream &a, const score &b);
+    friend ifstream& operator>>(ifstream& a, score &b);
+    friend ofstream& operator<<(ofstream& a, const score &b);
     int math;
     int computer;
     int total;
@@ -65,22 +70,23 @@ istream &operator>>(istream &a, score &b)
     return a;
 }
 
-ostream &operator<<(ostream &a, score &b)
+ostream &operator<<(ostream &a, const score &b)
 {
     a << "Math: " << b.math << " Computer: " << b.computer << " Total: " << b.total << endl;
     return a;
 }
 
-int main(int argc, char **argv)
+ifstream& operator>>(ifstream& a, score &b)
 {
-    score peter(10, 20), mary, tom;
-    cout << peter;
-    // cin >> mary;
-    mary = peter + 30;
-    cout << mary;
-    // tom = mary + peter;
-    // cout << tom << endl;
-    // cout << peter + tom + mary;
-
-    return 0;
+    a >> b.math >> b.computer;
+    b.total = b.math + b.computer;
+    return a;
 }
+
+ofstream& operator<<(ofstream& a, const score &b)
+{
+    a << "Math: " << b.math << " Computer: " << b.computer << " Total: " << b.total << endl;
+    return a;
+}
+
+#endif // SCORE_H
