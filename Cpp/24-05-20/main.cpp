@@ -3,9 +3,9 @@ using namespace std;
 
 class score
 {
-    friend score &operator+(score &a, score &b);
-    friend score &operator+(score &a, int b);
-    friend score &operator+(int a, score &b);
+    friend score operator+(const score &a, const score &b);
+    friend score operator+(const score &a, int b);
+    friend score operator+(int a, const score &b);
     friend istream &operator>>(istream &a, score &b);
     friend ostream &operator<<(ostream &a, score &b);
     int math;
@@ -19,15 +19,19 @@ public:
         computer = b;
         total = math + computer;
     }
-    void operator=(score &a)
+    score &operator=(const score &a)
     {
-        math = a.math;
-        computer = a.computer;
-        total = a.total;
+        if (this != &a)
+        {
+            math = a.math;
+            computer = a.computer;
+            total = a.total;
+        }
+        return *this;
     }
 };
 
-score &operator+(score &a, score &b)
+score operator+(const score &a, const score &b)
 {
     score temp;
     temp.math = a.math + b.math;
@@ -36,7 +40,7 @@ score &operator+(score &a, score &b)
     return temp;
 }
 
-score &operator+(score &a, int b)
+score operator+(const score &a, int b)
 {
     score temp;
     temp.math = a.math + b;
@@ -45,7 +49,7 @@ score &operator+(score &a, int b)
     return temp;
 }
 
-score &operator+(int a, score &b)
+score operator+(int a, const score &b)
 {
     score temp;
     temp.math = a + b.math;
@@ -71,12 +75,12 @@ int main(int argc, char **argv)
 {
     score peter(10, 20), mary, tom;
     cout << peter;
-    cin >> mary;
+    // cin >> mary;
     mary = peter + 30;
     cout << mary;
-    tom = mary + peter;
-    cout << tom << endl;
-    cout << peter + tom + mary;
+    // tom = mary + peter;
+    // cout << tom << endl;
+    // cout << peter + tom + mary;
 
     return 0;
 }
