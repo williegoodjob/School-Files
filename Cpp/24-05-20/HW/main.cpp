@@ -13,7 +13,7 @@ int main(int argc, char **argv)
     cout<<mary;
     in>>tom;
     cout<<tom<<endl;
-    out<<peter+tom+mary;
+    cout<<peter+tom+mary;
     in.close();
     out.close();
     return 0;
