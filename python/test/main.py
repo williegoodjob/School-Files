@@ -1,3 +1,4 @@
+#5b1g0028 蔡宇崴
 grades=[12,60,25,70,90]
 print(grades)
 print(grades[0])
