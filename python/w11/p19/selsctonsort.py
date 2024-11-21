@@ -8,6 +8,6 @@ def selection_sort(num):
         num[i], num[min_idx] = num[min_idx], num[i]
 
 num = [5,4,3,2,1]
-print("before: %s" % num)
+print(f"before: {num}")
 selection_sort(num)
-print("after : %s" % num)
+print(f"after : {num}")
